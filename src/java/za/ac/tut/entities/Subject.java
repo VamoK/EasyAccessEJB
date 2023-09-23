@@ -27,9 +27,6 @@ public class Subject implements Serializable {
     @Id
     private String id;
     
-    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
-    private List<Slots> slots = new ArrayList<>();
-
     public Subject() {
     }
 
@@ -45,16 +42,6 @@ public class Subject implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-
-    public List<Slots> getSlots() {
-        return slots;
-    }
-
-    public void setSlots(List<Slots> slots) {
-        this.slots = slots;
-    }
-    
-    
 
     @Override
     public int hashCode() {

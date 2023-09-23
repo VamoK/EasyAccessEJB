@@ -26,8 +26,8 @@ public class Timetable implements Serializable {
     @Id
     private String id;
     
-    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.MERGE)
-    private List<Subject> modules = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
+    private List<Slots> slots = new ArrayList<>();
 
     public Timetable() {
     }
@@ -46,16 +46,15 @@ public class Timetable implements Serializable {
         this.id = id;
     }
 
-    public List<Subject> getModules() {
-        return modules;
+    public List<Slots> getSlots() {
+        return slots;
     }
 
-    public void setModules(List<Subject> modules) {
-        this.modules = modules;
+    public void setSlots(List<Slots> slots) {
+        this.slots = slots;
     }
-    
-    
 
+    
     @Override
     public int hashCode() {
         int hash = 0;

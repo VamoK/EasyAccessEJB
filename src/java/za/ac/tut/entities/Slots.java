@@ -6,10 +6,16 @@
 package za.ac.tut.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,16 +28,19 @@ public class Slots implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+    @Column(nullable = false)
     private String monday;
-    
+    @Column(nullable = false)
     private String tuesday;
-    
+    @Column(nullable = false)
     private String wednesday;
-    
+    @Column(nullable = false)
     private String thursday;
-    
+    @Column(nullable = false)
     private String friday;
+    
+    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.MERGE)
+    private List<Subject> subject = new ArrayList<>();
 
     public Slots() {
     }
@@ -91,6 +100,14 @@ public class Slots implements Serializable {
 
     public void setFriday(String friday) {
         this.friday = friday;
+    }
+
+    public List<Subject> getSubject() {
+        return subject;
+    }
+
+    public void setSubject(List<Subject> subject) {
+        this.subject = subject;
     }
     
     

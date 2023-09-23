@@ -23,12 +23,11 @@ public class Notification implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+    @Column(nullable = false)
     private String moduleCode;
-    
+    @Column(nullable = false)
     private String groupID;
-    
-    @Column(length = 2000)
+    @Column(length = 2000, nullable = false)
     private String message;
 
     public Notification() {

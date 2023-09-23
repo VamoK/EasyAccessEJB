@@ -23,15 +23,15 @@ public class Student implements Serializable {
     @Id
     @Column(length = 9)
     private Long id;
-
+    @Column(nullable = false)
     private String name;
-    
+    @Column(nullable = false)
     private String surname;
-    
+    @Column(nullable = false)
     private String groupID;
-    
+    @Column(nullable = false)
     private String email;
-    
+    @Column(nullable = false)
     private String password;
 
     public Student() {
